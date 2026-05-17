@@ -150,4 +150,27 @@ function merge(arr1, arr2){
     return result;
 }
 
-console.log(merge([1,3,5], [2,4,6]));
+// console.log(merge([1,3,5], [2,4,6]));
+
+// 8) merge Sorted arrays 
+
+function merge(arr1,m,arr2,n){
+    let i=m-1,j=n-1,k=m+n-1;
+    while(i>=0 &&j>=0){
+        if(arr1[i]>arr2[j]){
+            arr1[k]=arr1[i];
+            i--;
+        }
+        else{
+            arr1[k]=arr2[j];
+            j--
+        }
+        k--;
+    }
+    while(j>=0){
+        arr1[k]=arr2[j];
+        j--;
+    }
+    return arr1
+}
+// console.log(merge([1,2,3,0,0,0], 3, [2,5,6], 3))
