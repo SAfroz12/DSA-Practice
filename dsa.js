@@ -213,3 +213,58 @@ function threeSum(arr){
     return result;
 }
 // console.log(threeSum([-1,0,1,2,-1,-4]));
+
+
+// 10)grouping objects by a property
+let obj=[
+    {name:"alice",role:"dev"},
+    {name:"Bob",role:"tester"},
+    {name:"eve",role:"dev"}
+    
+    ]
+    
+   
+    function group(obj,role){
+        let obj1={};
+     
+     for(let ch of obj){
+            let grouped=ch[role];
+     if(!obj1[grouped]){
+         obj1[grouped]=[]
+     }
+     obj1[grouped].push(ch)
+         
+         
+     }
+        return obj1
+        
+    }
+    // console.log(group(obj,"role"))
+
+    // 11) merge objects with same key by combining arrays 
+       
+    let arr=[ { id: 1, items: [1,2] },
+    { id: 2, items: [3] },
+    { id: 1, items: [4,5] } ];
+    
+
+    function group(arr){
+        
+     let map=new Map();
+     for(let i=0;i<arr.length;i++){
+         let key=arr[i].id
+         if(!map.has(key)){
+             map.set(key,arr[i].items)
+         }
+         else{
+             map.set(key,map.get(key).concat(arr[i].items))
+         }
+     }
+      
+      for(let [key,val] of map){
+          console.log({id:key,items:val})
+      }  
+        
+    }
+    // group(arr)
+    
