@@ -267,5 +267,64 @@ let obj=[
         
     }
     // group(arr)
-    
+    // 12) contiguous array
+    function contiguous(nums){
+
+    let maxLength = 0;
+    let sum = 0;
+
+    let map = new Map();
+
+    map.set(0, -1);
+
+    for(let i = 0; i < nums.length; i++){
+
+        if(nums[i] === 1){
+            sum += 1;
+        }
+
+        else{
+            sum += -1;
+        }
+
+        if(map.has(sum)){
+
+            maxLength = Math.max(
+                maxLength,
+                i - map.get(sum)
+            );
+        }
+
+        else{
+
+            map.set(sum, i);
+        }
+    }
+
+    return maxLength;
+}
+
+// console.log(contiguous([0,1,0,1]));
+// 13)Top k frequent elements 
+function TopK(nums, k) {
+
+    let map = new Map();
+
+    for(let ch of nums){
+        map.set(ch, (map.get(ch) || 0) + 1);
+    }
+
+    let arr = [...map.entries()];
+
+    arr.sort((a,b) => b[1] - a[1]);
+
+    let result = [];
+
+    for(let i = 0; i < k; i++){
+        result.push(arr[i][0]);
+    }
+
+    return result;
+};
+// console.log(TopK( [1,1,1,2,2,3],2))
     
