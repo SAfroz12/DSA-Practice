@@ -328,3 +328,27 @@ function TopK(nums, k) {
 };
 // console.log(TopK( [1,1,1,2,2,3],2))
     
+
+// 14) Reverse only vowels 
+function reverseVowel(str){
+    let set=new Set(["a","e","i","o","u"]);
+    let str1=str.split("")
+    let left=0;
+    let right=str1.length-1;
+    while(left<right){
+        
+        while(left<right && !set.has(str1[left])){
+            left++
+        }
+        while(left<right && !set.has(str1[right])){
+            right--
+        }
+        [str1[left],str1[right]]=[str1[right],str1[left]];
+        left++;
+        right--
+        
+    }
+    return str1.join("");
+}
+// console.log(reverseVowel("hello"))
+
