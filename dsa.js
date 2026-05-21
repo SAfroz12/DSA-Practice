@@ -351,4 +351,45 @@ function reverseVowel(str){
     return str1.join("");
 }
 // console.log(reverseVowel("hello"))
+// 15) flatten obj 
+const obj1 = {
+  a: 1,
+  b: { c: 2, d: 3 },
+  e: { f: { g: 4 } }
+};
 
+function flatten(obj,parentKey="",result={}){
+
+    for(let key in obj){
+         let newkey=parentKey? parentKey+"."+key:key;
+        if(typeof obj[key]==="object" && obj[key]!==null  && !Array.isArray(obj[key])){
+
+            flatten(obj[key],newkey,result)
+        }
+        else{
+         result[newkey]=obj[key]
+
+
+        }
+    }
+    return result
+}
+
+// console.log(flatten(obj1))
+
+// 16)flatten array
+
+
+function flatten(arr,result=[]){
+    for(let i=0;i<arr.length;i++){
+        if(Array.isArray(arr[i])){
+            flatten(arr[i],result);
+            
+        }
+        else{
+            result.push(arr[i])
+        }
+    }
+    return result;
+}
+// console.log(flatten([1,2,3,[4,5,6],[7,[8,9]]]))
