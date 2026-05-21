@@ -378,8 +378,6 @@ function flatten(obj,parentKey="",result={}){
 // console.log(flatten(obj1))
 
 // 16)flatten array
-
-
 function flatten(arr,result=[]){
     for(let i=0;i<arr.length;i++){
         if(Array.isArray(arr[i])){
@@ -393,3 +391,30 @@ function flatten(arr,result=[]){
     return result;
 }
 // console.log(flatten([1,2,3,[4,5,6],[7,[8,9]]]))
+
+// 17) merge by values Tried different way
+let obj=[
+    {name:"a",val:[1,2]},
+    {name:"b",val:[3,4]},
+    {name:"a",val:[5,6,7]}
+    
+    ]
+    function mergeVal(obj){
+        let result=[];
+        let map=new Map();
+        
+        for(let key of obj ){
+           if(!map.has(key["name"])){
+                map.set(key["name"],key["val"]);
+           } 
+           else{
+               map.set(key["name"],map.get(key["name"]).concat(key["val"]));
+           }
+        }
+        
+        for(let [key,val] of map){
+             result.push({name:key,value:val})
+        }
+        return result;
+    }
+    // console.log(mergeVal(obj))
