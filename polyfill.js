@@ -63,4 +63,4 @@ function myPromise(executor){
         }
         return this 
     }
-    executor(resolve,reject)
+    executor(resolve,reject)}
