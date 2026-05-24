@@ -418,8 +418,10 @@ let obj=[
         return result;
     }
     // console.log(mergeVal(obj));
+
+
     // 18 Trap Raining Water 
-    // your code goes here
+  
 function trapRain(height) {
 
     let left = 0;
@@ -446,4 +448,22 @@ function trapRain(height) {
 
     return water;
 }
-// console.log(trapRain([4,2,0,3,2,5]))
+// console.log(trapRain([4,2,0,3,2,5]));
+
+// 19) subarray sum divisible by k 
+function subarray(arr,k){
+    let map=new Map();
+    let sum=0;
+    let count=0;
+    map.set(0,1);
+    for(let i=0;i<arr.length;i++){
+        sum+=arr[i];
+        let remain=((sum%k)+k)%k;
+        if(map.has(remain)){
+            count+=map.get(remain);
+        }
+        map.set(remain,(map.get(remain)||0)+1);
+    }    
+    return count;
+}
+// console.log(subarray([4,5,0,-2,-3,1],5));
