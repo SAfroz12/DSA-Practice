@@ -467,3 +467,20 @@ function subarray(arr,k){
     return count;
 }
 // console.log(subarray([4,5,0,-2,-3,1],5));
+
+// 20) remove dulpicates from sorted array 2
+
+function removeDulp(nums) {
+    if(nums.length<=2){
+        return nums.length
+    }
+    let i=2;
+    for(let j=2;j<nums.length;j++){
+        if(nums[j]!==nums[i-2]){
+            nums[i]=nums[j]
+            i++;
+        }
+    }
+    return i
+}
+// console.log(removeDulp([1,1,1,2,2,3]))
