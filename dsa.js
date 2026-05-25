@@ -483,4 +483,15 @@ function removeDulp(nums) {
     }
     return i
 }
-// console.log(removeDulp([1,1,1,2,2,3]))
+// console.log(removeDulp([1,1,1,2,2,3]));
+
+// 21)finding substrings
+function substring(str){
+    for(let i=0;i<str.length;i++){
+        for(let j=i;j<str.length;j++){
+            console.log(str.slice(i,j+1));
+        }
+    }
+}
+
+// substring("abc")
