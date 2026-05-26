@@ -495,3 +495,39 @@ function substring(str){
 }
 
 // substring("abc")
+
+
+// 22) two sum input sorted array 2;
+function twosum(numbers, target) {
+
+    let map = new Map();
+
+    for(let i = 0; i < numbers.length; i++){
+
+        let complement = target - numbers[i];
+
+        if(map.has(complement)){
+
+            return [
+                map.get(complement) + 1,
+                i + 1
+            ];
+        }
+
+        map.set(numbers[i],i);
+    }
+}
+// console.log(twosum([2,7,11,15],9))
+
+
+// 23) best time to buy and sell stock 2
+function stock(prices) {
+    let profit = 0;
+    for (let i = 1; i < prices.length; i++) {
+        if (prices[i] > prices[i - 1]) {
+            profit += prices[i] - prices[i - 1]
+        }
+    }
+    return profit
+}
+// console.log(stock([7,1,5,3,6,4]))
