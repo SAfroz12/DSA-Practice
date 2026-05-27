@@ -530,4 +530,23 @@ function stock(prices) {
     }
     return profit
 }
-// console.log(stock([7,1,5,3,6,4]))
+// console.log(stock([7,1,5,3,6,4]));
+
+// 24) jump Game
+function jump(nums) {
+    let maxReach = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+        if (i > maxReach) {
+            return false;
+        }
+
+
+        maxReach = Math.max(maxReach, nums[i] + i);
+        if (maxReach >= nums.length - 1) {
+            return true;
+        }
+    }
+    return true
+};
+// console.log(jump([2,3,1,1,4]))
