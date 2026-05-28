@@ -550,3 +550,29 @@ function jump(nums) {
     return true
 };
 // console.log(jump([2,3,1,1,4]))
+
+// 25) Set Matrix zeros
+function setZero(matrix) {
+    let rows = new Set();
+    let cols = new Set();
+
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+          if(matrix[i][j]===0){
+            rows.add(i);
+            cols.add(j)
+          }
+        }
+
+    };
+    for(let i=0;i<matrix.length;i++){
+        for(let j=0;j<matrix[i].length;j++){
+            if(rows.has(i)|| cols.has(j)){
+                matrix[i][j]=0;
+                
+            }
+        }
+    }
+    return matrix
+};
+// console.log(setZero([[0,1,2,0],[3,4,5,2],[1,3,1,5]]))
