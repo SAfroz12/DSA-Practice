@@ -575,4 +575,27 @@ function setZero(matrix) {
     }
     return matrix
 };
-// console.log(setZero([[0,1,2,0],[3,4,5,2],[1,3,1,5]]))
+// console.log(setZero([[0,1,2,0],[3,4,5,2],[1,3,1,5]]));
+
+// 26) Ransom note
+function ransom(ransomNote, magazine) {
+    let map = new Map();
+    for (let ch of magazine) {
+        map.set(ch, (map.get(ch) || 0) + 1);
+    }
+    let count = 0;
+    for (let i = 0; i < ransomNote.length; i++) {
+        if (!map.has(ransomNote[i])|| map.get(ransomNote[i])===0) {
+       
+         return false
+        }
+        else {
+                 map.set(ransomNote[i], map.get(ransomNote[i]) - 1);
+            count++
+        }
+    }
+    if (count === ransomNote.length) {
+        return true
+    }
+};
+// console.log(ransom("aa","ab"))
