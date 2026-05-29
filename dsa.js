@@ -599,3 +599,64 @@ function ransom(ransomNote, magazine) {
     }
 };
 // console.log(ransom("aa","ab"))
+
+
+
+// 27) Two sum
+ function twoSum(nums, target) {
+     let result=[];
+     let map=new Map();
+     for(let i=0;i<nums.length;i++){
+     let sum=0;
+     sum+=nums[i];
+     if(map.has(target-sum)){
+        result.push(map.get(target-sum),i)
+     }
+     map.set(nums[i],i)
+
+     }
+     return result
+}
+// console.log(twoSum([2,7,11,15],9))
+
+ //28) Word Pattern 
+ 
+  function wordPattern (pattern, s) {
+    let map1 = new Map();
+    let map2 = new Map();
+    let word = s.split(" ");
+    if(pattern.length!==word.length)return false;
+for(let i=0;i<pattern.length;i++){
+    if(!map1.has(pattern[i]) && !map2.has(word[i])){
+        map1.set(pattern[i],word[i]);
+        map2.set(word[i],pattern[i]);
+
+    }
+    else if(map1.get(pattern[i])!==word[i] || map2.get(word[i])!==pattern[i]){
+        return false;
+    }
+}
+return true
+
+}
+// console.log(wordPattern("abba", "dog cat cat dog"))
+
+//29) isomorphic Strings
+
+ function isomorphic(s, t) {
+    let map1=new Map();
+    let map2=new Map();
+     if(s.length!==t.length) return false;
+     for(let i=0;i<s.length;i++){
+        if(!map1.has(s[i])&& !map2.has(t[i])){
+            map1.set(s[i],t[i]);
+            map2.set(t[i],s[i])
+        }
+        else if( map1.get(s[i])!==t[i] || map2.get(t[i])!==s[i]){
+            return false;
+        }
+     }
+     return true
+    }
+    // console.log(isomorphic("egg","add"))
+
