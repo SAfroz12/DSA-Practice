@@ -679,3 +679,22 @@ return true
 };
 
 // console.log(majority([3,2,3]))
+
+// 31) find minimum in the rotated sorted array
+function max(nums) {
+    
+    let left=0;
+    let right=nums.length-1;
+    while(left<right){
+        let mid=Math.floor((left+right)/2);
+        if(nums[mid]>nums[right]){
+            left=mid+1;
+        }
+        else{
+            right=mid 
+        }
+    }
+    let max=(right-1+nums.length)%nums.length;
+    return nums[max]
+}
+// console.log(max([3,4,5,1,2]))
