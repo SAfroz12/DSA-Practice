@@ -660,3 +660,22 @@ return true
     }
     // console.log(isomorphic("egg","add"))
 
+    // 30) majority element 2
+
+    function majority(nums) {
+
+    let map = new Map();
+    let result = []
+    let n = nums.length;
+    for (let ch of nums) {
+        map.set(ch, (map.get(ch) || 0) + 1)
+    }
+    for (let [key, val] of map) {
+        if (val >(n / 3)) {
+            result.push(key)
+        }
+    };
+    return result
+};
+
+// console.log(majority([3,2,3]))
