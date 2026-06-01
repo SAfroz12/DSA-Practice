@@ -698,3 +698,17 @@ function max(nums) {
     return nums[max]
 }
 // console.log(max([3,4,5,1,2]))
+
+// 32) sum of array of nums to object 
+function sum(arr){
+    let obj={};
+    for(let ch of arr){
+    
+  obj[ch]=(obj[ch]||0)+ch
+             
+         
+    }
+    
+    return obj
+}
+// console.log(sum([1,2,2,3,3,4,1]));
