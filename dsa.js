@@ -712,3 +712,30 @@ function sum(arr){
     return obj
 }
 // console.log(sum([1,2,2,3,3,4,1]));
+
+// 33) merge Intervals
+function mergeIntervals(intervals){
+    intervals.sort((a,b)=>a[0]-b[0]);
+    let current=intervals[0];
+    let result=[];
+    for(let i=1;i<intervals.length;i++){
+        let next=intervals[i];
+        let currentStart=current[0];
+        let currentEnd=current[1];
+        let nextStart=next[0];
+        let nextEnd=next[1];
+        if(nextStart<=currentEnd){
+             let start=currentStart;
+             let end=Math.max(currentEnd,nextEnd);
+             current=[start,end];
+        }else{
+            result.push(current);
+            current=next
+        }
+        
+    }
+    result.push(current);
+
+    return result;
+}
+// console.log(mergeIntervals([[1,3],[2,6],[8,10],[15,18]]))
