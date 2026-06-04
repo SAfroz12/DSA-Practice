@@ -762,3 +762,20 @@ function mergeIntervals(intervals){
 
 };
 // console.log(missing([1,2,4,5]))
+// 35) first Missing positive;
+function missingpositive(nums) {
+    let n = nums.length;
+    for (let i = 0; i < n; i++) {
+        while (nums[i] > 0 && nums[i] <= n && nums[i] !== nums[nums[i] - 1]) {
+            let swapOne = nums[i] - 1;
+            [nums[i], nums[swapOne]] = [nums[swapOne], nums[i]]
+        }
+    };
+    for (let i = 0; i < n; i++) {
+        if (nums[i] !== i + 1) {
+            return i + 1
+        }
+    }
+    return n + 1
+};
+// console.log(missingpositive([3,4,-1,1]))
