@@ -739,3 +739,26 @@ function mergeIntervals(intervals){
     return result;
 }
 // console.log(mergeIntervals([[1,3],[2,6],[8,10],[15,18]]))
+
+// 34) Find Missing Elements
+ function missing(nums) {
+    let result = [];
+    let maximum = -Infinity;
+    let minimum = Infinity;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > maximum) {
+            maximum = nums[i];
+        }
+        if (nums[i] < minimum) {
+            minimum = nums[i]
+        }
+    }
+    for (let i = minimum; i < maximum; i++) {
+        if (!nums.includes(i)) {
+            result.push(i)
+        }
+    }
+    return result
+
+};
+// console.log(missing([1,2,4,5]))
