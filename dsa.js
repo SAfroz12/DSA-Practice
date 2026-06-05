@@ -796,3 +796,24 @@ function missingpositive(nums) {
     return citation
 }
 // console.log(hindex([3,0,6,1,5]))
+
+
+// 37)Pivot-index
+ function  pivot(nums) {
+  let prefix=0;
+  let total=0;
+  for(let i=0;i<nums.length;i++){
+    total+=nums[i]
+  }
+for(let i=0;i<nums.length;i++){
+    prefix+=nums[i];
+    let left=prefix-nums[i];
+    let right=total-prefix;
+    if(left===right){
+        return i
+    }
+}
+return -1
+
+}
+// console.log(pivot([1,7,3,6,5,6]))
