@@ -817,3 +817,32 @@ return -1
 
 }
 // console.log(pivot([1,7,3,6,5,6]))
+
+// 38) insert and merge intervals;
+ function insert(intervals, newInterval) {
+    
+let result=[]
+    for(let i=0;i<intervals.length;i++){
+        let current=intervals[i];
+        if(current[1]<newInterval[0]){
+            result.push(current);
+       
+        
+        }
+        else if(current[0]>newInterval[1]){
+           result.push(newInterval);
+           newInterval=current;
+        }
+        else{
+            let start=Math.min(current[0],newInterval[0]);
+            let end=Math.max(current[1],newInterval[1]);
+          newInterval =[start,end]
+        };
+        
+    };
+    result.push(newInterval)
+
+
+    return result
+}
+console.log(insert([[1,3],[6,9]],  [2,5]))
