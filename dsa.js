@@ -779,3 +779,20 @@ function missingpositive(nums) {
     return n + 1
 };
 // console.log(missingpositive([3,4,-1,1]))
+
+// 36)h-index
+ function hindex(citations) {
+    
+    let citation=0;
+    citations.sort((a,b)=>b-a);
+    for(let i=0;i<citations.length;i++){
+        if(citations[i]>=i+1){
+            citation=i+1
+        }else{
+             break
+        }
+
+    }
+    return citation
+}
+// console.log(hindex([3,0,6,1,5]))
