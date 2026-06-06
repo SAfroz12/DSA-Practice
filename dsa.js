@@ -762,6 +762,7 @@ function mergeIntervals(intervals){
 
 };
 // console.log(missing([1,2,4,5]))
+
 // 35) first Missing positive;
 function missingpositive(nums) {
     let n = nums.length;
@@ -876,3 +877,25 @@ console.log(insert([[1,3],[6,9]],  [2,5]));
     return closest
 };
 // console.log(sum([-1,2,1,-4],1))
+
+// 40) Rotate a string without using any string methods 
+function rotate(str1,k){
+    k=k%str1.length;
+    let str=str1.split("");
+    
+    function reverse(left,right){
+        
+        while(left<right){
+             [str[left],str[right]]=[str[right],str[left]];
+             left++;
+             right--
+        }
+        return str;
+    }
+    
+    reverse(0,str1.length-1);
+    reverse(0,k-1);
+    reverse(k,str1.length-1);
+    return str.join("")
+}
+// console.log(rotate("hello",2))
