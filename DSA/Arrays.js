@@ -618,3 +618,44 @@ function mergeIntervals(intervals){
     return result;
 }
 // console.log(mergeIntervals([[1,3],[2,6],[8,10],[15,18]]))
+
+
+// 28) median of two soted arrays 
+function median(nums1, nums2) {
+    
+    let i=0,j=0;
+let result=[];
+while(i<nums1.length && j<nums2.length ){
+    if(nums1[i]<nums2[j]){
+        result.push(nums1[i]);
+        i++
+    }
+    else{
+        result.push(nums2[j]);
+        j++
+    }
+}
+while(i<nums1.length){
+    result.push(nums1[i]);
+    i++
+}
+
+while(j<nums2.length){
+    result.push(nums2[j]);
+    j++
+}
+
+let median=result;
+let n=median.length;
+if(n%2===0){
+       let mid1=median[(n/2)-1];
+       let mid2=median[(n/2)];
+       return (mid1+mid2)/2  
+
+}
+else{
+    return median[Math.floor(n/2)]
+}
+};
+
+console.log(median([1,3],[2]))
