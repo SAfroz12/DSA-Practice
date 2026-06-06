@@ -845,4 +845,34 @@ let result=[]
 
     return result
 }
-console.log(insert([[1,3],[6,9]],  [2,5]))
+console.log(insert([[1,3],[6,9]],  [2,5]));
+// 39)3sum closest
+ function Sum(nums, target) {
+    // [-4,-1,1,2];
+
+    let closest=nums[0]+nums[1]+nums[2];
+    nums.sort((a,b)=>a-b);
+    for(let i=0;i<nums.length-2;i++){
+        let left=i+1;
+        let right=nums.length-1;
+        while(left<right){
+            let sum=nums[i]+nums[left]+nums[right];
+            if(Math.abs(sum-target)<Math.abs(closest-target)){
+                closest=sum
+            }
+             if(sum<target){
+                left++
+             }
+             else if(sum>target){
+             right--
+             }
+             else{
+                return sum;
+             }
+            
+
+        }
+    }
+    return closest
+};
+// console.log(sum([-1,2,1,-4],1))
