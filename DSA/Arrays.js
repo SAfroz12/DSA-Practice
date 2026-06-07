@@ -620,7 +620,7 @@ function mergeIntervals(intervals){
 // console.log(mergeIntervals([[1,3],[2,6],[8,10],[15,18]]))
 
 
-// 28) median of two soted arrays 
+// 28) median of two sorted arrays 
 function median(nums1, nums2) {
     
     let i=0,j=0;

@@ -319,4 +319,42 @@ function rotate(str1,k){
     }
     return closest
 };
-// console.log(sum([-1,2,1,-4],1))
+// console.log(sum([-1,2,1,-4],1));
+
+
+// 15) find anagrams in String
+function anagrams(s, p) {
+    let sCount = new Array(26).fill(0);
+    let pCount = new Array(26).fill(0);
+    let result = [];
+
+    let pLen = p.length;
+
+    for (let ch of p) {
+        pCount[ch.charCodeAt(0) - 97]++;
+    }
+
+    for (let i = 0; i < s.length; i++) {
+        sCount[s[i].charCodeAt(0) - 97]++;
+
+        if (i >= pLen) {
+            sCount[s[i - pLen].charCodeAt(0) - 97]--;
+        }
+
+        // compare arrays manually (fast)
+        if (arraysEqual(sCount, pCount)) {
+            result.push(i - pLen + 1);
+        }
+    }
+
+    return result;
+}
+
+function arraysEqual(a, b) {
+    for (let i = 0; i < 26; i++) {
+        if (a[i] !== b[i]) return false;
+    }
+    return true;
+}
+
+// console.log(anagrams("cbaebabacd","abc"))
