@@ -659,3 +659,59 @@ else{
 };
 
 console.log(median([1,3],[2]))
+
+// clock wise rotation (matrix)
+function clockRotate(arr){
+    for(let i=0;i<arr.length;i++){
+        for(let j=i+1;j<arr[i].length;j++){
+            [arr[i][j],arr[j][i]]=[arr[j][i],arr[i][j]]
+        }
+        
+    }
+ for(let i=0;i<arr.length;i++){
+     
+let left=0;
+let right=arr.length-1;
+while(left<right){
+    
+    [arr[i][left],arr[i][right]]=[arr[i][right],arr[i][left]]
+    
+    left++
+    right--
+}
+ }
+ return arr;
+
+
+
+}
+console.log(clockRotate([[1,2,3],[4,5,6],[7,8,9]]))
+
+// Anticlock Wise Rotation
+
+function rotate(arr){
+
+for(let i=0;i<arr.length;i++){
+    for(let j=i+1;j<arr[i].length;j++){
+        [arr[i][j],arr[j][i]]=[arr[j][i],arr[i][j]]
+    }
+}
+for(let i=0;i<arr.length;i++){
+    let left=0;
+    let right=arr.length-1;
+    while(left<right){
+        [arr[left][i],arr[right][i]]=[arr[right][i],arr[left][i]];
+        left++;
+        right--;
+    }
+}
+
+return arr
+
+
+}
+console.log(rotate([[1,2,3],[4,5,6],[7,8,9]]))
+
+
+//clock wise rotation-transpose+rowsReverse;
+//Anticlock wise Rotation- transpose+coloums reverse
