@@ -39,19 +39,44 @@ let cat=new Cat();
 
 
 // 3) encapsulation 
-class Balance{
-    #balance=0;
-    
-    deposit(amount){
-        this.#balance+=amount;
-    }
-    getBalance(){
-        return this.#balance;
-        
-    }
-    
-}
-let user=new Balance();
-user.deposit(500);
-// console.log(user.getBalance())
 
+// without encapsulation 
+ class Balance{
+    
+    constructor(name,salary){
+        this.name=name;
+        this.salary=salary;
+
+    }
+
+ }
+ const user=new Balance("js",10000);
+ user.salary=-100000;
+//  console.log(user.salary);
+ 
+
+ //with encapsulation 
+
+ class BalanceAmount{
+    constructor(name,salary){
+        this.name=name;
+        this._salary=salary;
+
+    }
+    get Balance(){
+        return this._salary;
+    }
+    set balanceAmount(amount){
+        if(amount<0){
+            console.log('salary is not negative');
+            return ;
+        }
+        this._salary=amount;
+    }
+ }
+
+
+ const user1=new BalanceAmount('afroz',9000);
+//  console.log(user1.Balance);
+ user1.balanceAmount=-800;;
+//  console.log(user1.Balance)

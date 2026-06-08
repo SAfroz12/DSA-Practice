@@ -36,4 +36,31 @@ api.interceptors.response.use(
 //  response:{
 //     ...
 //  }
-// } so now the return Promise.rejects(error ) which sends an error message to the react component 
+// } so now the return Promise.rejects(error ) which sends an error message to the react component ;
+
+// deep copy implemetation
+let user={
+    name:"Afroz",
+    address:{
+        place:"hyd",
+        pin:507115
+    }
+};
+
+function deep(obj){
+    if(obj!==null && typeof obj!=="object"){
+        return obj
+    }
+    let copy=Array.isArray(obj)?[]:{};
+     for(let ch in obj){
+         copy[ch]=deep(obj[ch]);
+        //  console.log(copy)
+     }
+     
+     return copy
+}
+let  clonedobj=deep(user);
+
+clonedobj.address.place="delhi";
+console.log(user.address.place);
+console.log(clonedobj.address.place)
