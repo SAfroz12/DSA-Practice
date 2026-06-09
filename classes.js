@@ -109,3 +109,24 @@ class Manager extends Employee{
 // u1.login();
 // const u2=new Developer("ali","aaaa");
 // u2.login()
+
+class Coffee{
+
+    takingpowder(){
+        console.log("take powder ")
+    }
+    boil(){
+        console.log("boil the water and powder");
+    }
+    ready(){
+        console.log(" coffee is ready");
+    }
+       
+    process(){
+        this.takingpowder();
+        this.boil();
+        this.ready()
+    }
+}
+const user=new Coffee();
+user.process()

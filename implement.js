@@ -50,3 +50,23 @@ async function fetchUsers(retries = 3) {
     throw err;
   }
 }
+// 2)memoization
+function memoized(){
+    let cache={};
+    return function (n){
+        if(cache[n]){
+            console.log("cache value");
+            return cache[n]
+        }
+        
+        console.log("calculating");
+        const result=n*n;
+        cache[n]=result;
+        return result;
+    }
+    
+}
+let square=memoized();
+console.log(square(5))
+console.log(square(5))
+console.log(square(6))
