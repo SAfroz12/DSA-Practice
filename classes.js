@@ -57,26 +57,55 @@ let cat=new Cat();
 
  //with encapsulation 
 
- class BalanceAmount{
-    constructor(name,salary){
-        this.name=name;
-        this._salary=salary;
+ class Balance {
+    #balance;
 
+    constructor(name, balance) {
+        this.name = name;
+        this.#balance = balance;
     }
-    get Balance(){
-        return this._salary;
+
+    get balance() {
+        return this.#balance;
     }
-    set balanceAmount(amount){
-        if(amount<0){
-            console.log('salary is not negative');
-            return ;
+
+    addMoney(amount) {
+        if (amount > 0) {
+            this.#balance += amount;
         }
-        this._salary=amount;
     }
- }
+}
+
+const u1 = new Balance("js", 10000);
+
+u1.addMoney(1000);
+
+console.log(u1.balance);
 
 
- const user1=new BalanceAmount('afroz',9000);
-//  console.log(user1.Balance);
- user1.balanceAmount=-800;;
-//  console.log(user1.Balance)
+//inheritance 
+class Employee{
+    constructor(name,email){
+        this.name=name;
+        this.email=email
+    }
+    login(){
+        console.log(`${this.name} was logged in`)
+    }
+
+}
+class Developer extends Employee{
+     code(){
+        console.log("writing a code")
+     }
+}
+class Manager extends Employee{
+    work(){
+        console.log("manager checked")
+    }
+
+}
+// const u1=new Employee("affroz","affrozali");
+// u1.login();
+// const u2=new Developer("ali","aaaa");
+// u2.login()
