@@ -738,3 +738,20 @@ function difference(nums) {
     return result
 };
 // console.log(difference([10,4,8,3]))
+
+// 30) reverse Integer;
+ function reverse(x) {
+    let reverse=0;
+    while(x!==0){
+        let digit=x%10;
+        reverse=(reverse*10)+digit;
+        x=Math.trunc(x/10);
+
+        
+    };
+    if(reverse<-(2**31)||reverse>(2**31)-1){
+        return 0
+    }
+    return reverse
+}
+// console.log(reverse(-123));
