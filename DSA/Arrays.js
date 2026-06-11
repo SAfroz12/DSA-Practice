@@ -755,3 +755,18 @@ function difference(nums) {
     return reverse
 }
 // console.log(reverse(-123));
+// 31) Check if Array Is Sorted and Rotated
+
+function sorted(nums) {
+  let count=0;
+  let n=nums.length
+  for(let i=0;i<nums.length;i++){
+    if(nums[i]>nums[(i+1)%n]){
+        count++
+    }
+  
+    
+  }  
+  return count<=1
+};
+// console.log(sorted([3,4,5,1,2]))
