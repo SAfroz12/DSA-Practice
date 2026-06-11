@@ -716,3 +716,25 @@ console.log(rotate([[1,2,3],[4,5,6],[7,8,9]]))
 //clock wise rotation-transpose+rowsReverse;
 //Anticlock wise Rotation- transpose+coloums reverse
 
+// 29) Left and Right Sum Differences
+function difference(nums) {
+    let leftSum=0;
+    let rightSum=0;
+    let left=[];
+    let right=[];
+    let result=[];
+    for(let i=0;i<nums.length;i++){
+        left[i]=leftSum;
+        leftSum+=nums[i];
+    };
+    for(let i=nums.length-1;i>=0;i--){
+        right[i]=rightSum;
+        rightSum+=nums[i]
+    }
+    for(let i=0;i<nums.length;i++){
+        let val=Math.abs(left[i]-right[i]);
+        result.push(val);
+    }
+    return result
+};
+// console.log(difference([10,4,8,3]))
