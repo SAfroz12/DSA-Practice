@@ -770,3 +770,21 @@ function sorted(nums) {
   return count<=1
 };
 // console.log(sorted([3,4,5,1,2]))
+
+
+// 32) find Peak Element
+ function peak(nums) {
+let left=0;
+let right=nums.length-1;
+while(left<right){
+    let mid=Math.floor((left+right)/2);
+    if(nums[mid+1]>nums[mid]){
+        left=mid+1
+    }
+    else{
+        right=mid;
+    }
+}
+return left
+};
+// console.log(peak([1,2,3,1]))
