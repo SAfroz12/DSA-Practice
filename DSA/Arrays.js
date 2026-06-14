@@ -811,3 +811,25 @@ function dulplicate(nums) {
 
 TimeComplexity:O(n);
 spaceComplexity:O(1)
+
+// 34) find Middle index in array ;
+function middle(nums) {
+    let total=0;
+    for(let i=0;i<nums.length;i++){
+        total+=nums[i]
+    }
+    let prefix=0;
+    for(let i=0;i<nums.length;i++){
+        prefix+=nums[i];
+        let left=prefix-nums[i];
+        let right=total-prefix;
+        if(left===right){
+            return i
+        }
+    };
+    return -1
+};
+// console.log(middle(2,3,-1,8,4))
+TimeComplexity:O(n);
+spaceComplexity:O(1)
+
