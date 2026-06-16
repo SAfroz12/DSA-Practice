@@ -375,4 +375,26 @@ function longest(s) {
     };
     return maxLen
 };
-console.log(longest("abcabcbb"))
+// console.log(longest("abcabcbb"));
+
+
+// 17) find first unique Character in String;
+
+ function unique(s) {
+  let map= new Map();
+  
+  for(let i=0;i<s.length;i++){
+    map.set(s[i],(map.get(s[i])||0)+1)
+  }
+  for(let  [key,val] of map){
+     if(val===1){
+        return s.indexOf(key)
+
+     }
+  }
+return -1
+
+};
+// console.log(unique("leetcode"))
+TC:O(n)
+SC:O(n)
