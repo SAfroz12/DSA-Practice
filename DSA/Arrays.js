@@ -833,3 +833,26 @@ function middle(nums) {
 TimeComplexity:O(n);
 spaceComplexity:O(1)
 
+
+// 35) find longest harmonious sequence
+ function  longest(nums) {
+    let map = new Map();
+    let maxLen = 0;
+    for (let ch of nums) {
+        map.set(ch, (map.get(ch) || 0) + 1)
+    };
+    let key = [...map.keys()]
+    for (let ch of key) {
+        let count = 0;
+        if (map.has(ch + 1)) {
+            count += map.get(ch) + map.get(ch + 1);
+
+        };
+        maxLen = Math.max(maxLen, count);
+    }
+    return maxLen
+};
+
+console.log(longest([1,2,3,4]))
+//  TC: O(n + k) which is O(n) in the worst case (k ≤ n).
+// SC: O(k) 
