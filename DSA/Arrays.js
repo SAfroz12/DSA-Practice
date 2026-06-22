@@ -857,3 +857,31 @@ console.log(longest([1,2,3,4]))
 //  TC: O(n + k) which is O(n) in the worst case (k ≤ n).
 // SC: O(k) 
 
+
+// 36) find next nextGreater element;
+
+function next(nums1, nums2) {
+    let map=new Map();
+   
+    let stack=[]
+    for(let i=nums2.length-1;i>=0;i--){
+
+        while(stack.length&& stack[stack.length-1]<=nums2[i]){
+            stack.pop()
+        }
+          map.set(nums2[i],stack.length?stack[stack.length-1]:-1);
+          console.log(map)
+          stack.push(nums2[i])
+          console.log(stack)
+    }
+
+
+    let result=[];
+    for(let i=0;i<nums1.length;i++){
+        result.push(map.get(nums1[i]))
+    }
+    return result
+
+console.log(next([4,1,2],  [1,3,4,2]))
+
+};
