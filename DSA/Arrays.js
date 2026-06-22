@@ -885,3 +885,25 @@ function next(nums1, nums2) {
 console.log(next([4,1,2],  [1,3,4,2]))
 
 };
+// 37) Longest Substring with At Least K Repeating Characters
+function Substring(s, k) {
+let map=new Map();
+if(s.length===0) return s
+for(let ch of s){
+    map.set(ch,(map.get(ch)||0)+1)
+}
+for(let [key,val] of map){
+    if(val<k){
+        let parts=s.split(key);
+        let ans=0;
+        for(let part of parts ){
+            ans=Math.max(ans,longestSubstring(part,k))
+        }
+        return  ans
+    }
+ 
+}
+return s.length
+}
+
+// console.log(Substring("bbaaacbd"))
