@@ -462,3 +462,33 @@ function permutation(s1, s2) {
     return false
 };
 console.log(permutation("ab","eidbaooo"))
+
+
+//  20)Maximum Number of Vowels in a Substring of Given Length
+function maxVowel(s, k) {
+    let maxcount=0;
+    let set=new Set(["a","e","i","o","u"])
+    let left=0;
+    // let set1=new Set();
+    let count=0;
+    for(let right=0;right<s.length;right++){
+   
+   if(set.has(s[right])){
+    count++
+
+   }
+   if((right-left+1)>k){
+    if(set.has(s[left])){
+        count--
+        
+    }
+        left++;
+   }
+   maxcount=Math.max(count,maxcount)
+    };
+    return maxcount
+};
+
+// console.log(maxVowel("aeiou",2))
+
+
